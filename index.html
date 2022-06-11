@@ -8,14 +8,28 @@
 </head>
 
 <body>
-    <form>
-      <input type="radio" id="LT" name="country" value="Lithuania" checked="checked">
-      <label for="LT">Lithuania</label>
-      <input type="radio" id="LV" name="country" value="Latvia" disabled>
-      <label for="LV">Latvia</label><br>
-      <label for="age">Age:</label>
-      <input type="number" id="age" value="30" ><br>
-      <input type="submit" value="GENERATE">
+    <form id="form" >
+        <label for="LT">
+            <input type="radio" id="LT" name="country" value="Lithuania" checked="checked">
+            <img  src="Lithuania_Flag.png" width="20"/>
+            Lithuania
+        </label>
+        <label for="LV">
+            <input type="radio" id="LV" name="country" value="Latvia">
+            <img for="LV" src="Latvia_Flag.png" width="22"/>
+            Latvia
+        </label> <br>
+        <label for="female">
+            <input type="radio" id="female" name="genderOption" value="female" checked="checked">
+            female
+        </label> 
+        <label for="male">
+            <input type="radio" id="male" name="genderOption" value="male">
+            male
+        </label> <br>       
+        <label for="age">Age:</label>
+        <input type="number" id="age" ><br>
+        <input type="submit" value="GENERATE" width="10">
     </form>
     <script src="app.js"></script>
 </body>
