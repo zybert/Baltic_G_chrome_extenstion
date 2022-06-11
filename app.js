@@ -1,9 +1,5 @@
-
-
-let age=27
-
-
-
+console.log(age)
+let generateLtPerCode = (age) => {
 //Convert age to birth year. Current year - age - 1day. 
 let today = new Date();
 birthYear = String(today.getFullYear() - age);
@@ -23,7 +19,6 @@ console.log(genderNumber);
 
 personalCode = genderNumber.substring(0) + birthData.substring(2,10);
 
-
 console.log(personalCode);
 
 let serialNumber = String(Math.floor(Math.random() * 999));
@@ -35,7 +30,6 @@ personalCode = personalCode +serialNumber;
 console.log('Personal code: ' + personalCode);
 
 //Check sum number. - from wikipedia
-
 function lt_nin_checksum(code) {
     var b = 1, c = 3, d = 0, e = 0, i, digit;
     for (i = 0; i < 10; i++) {
@@ -56,6 +50,14 @@ function lt_nin_checksum(code) {
   }
   
 personalCode = personalCode + lt_nin_checksum(personalCode); //adding 11 checksum digit.
+document.write(personalCode);
+}
 
-console.log(personalCode);
-document.write(personalCode)
+form.addEventListener('submit',(e) => {
+  e.preventDefault()
+  const form = document.getElementById("form");
+  const country = document.getElementsByName("country").value;
+  const genderOption = document.getElementsByName("genderOption").value;
+  const age = document.getElementById("age").value
+  console.log(age)
+})
