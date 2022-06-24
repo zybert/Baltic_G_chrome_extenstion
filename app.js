@@ -55,8 +55,6 @@ personalCode = personalCode + lt_nin_checksum(personalCode); //adding 11 checksu
 return personalCode;
 
 }
-document.getElementById("LV").addEventListener("click".)
-
 
 form.addEventListener('submit',(e) => {
   e.preventDefault()
@@ -82,6 +80,8 @@ form.addEventListener('submit',(e) => {
   perCodeText.innerHTML = personalCode;
   }
 })
+
+
 
 
 form.addEventListener('submit',(e) => {
