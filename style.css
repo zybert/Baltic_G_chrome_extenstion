@@ -7,3 +7,12 @@ input::-webkit-inner-spin-button {
 #age {
    width:100px;
 }
+
+#generate{
+    margin-left: 33px;
+    margin-top: 5px;
+}
+
+#male{
+    margin-left: 10px;
+}
