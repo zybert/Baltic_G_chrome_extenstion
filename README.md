@@ -1,1 +1,1 @@
-# Baltic_G_chrome_extenstion
+# Baltic_G
