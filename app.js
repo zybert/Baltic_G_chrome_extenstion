@@ -1,6 +1,15 @@
-console.log(age)
-let generateLtPerCode = (age) => {
-//Convert age to birth year. Current year - age - 1day. 
+//in Latvia new personal codes have "32" and random numbers.
+function generateLVPerCode () {
+  const twoFirstNumbers = "32";
+  let nineLastNumbers = String(Math.random() * (999999999 - 111111111) + 111111111);
+  nineLastNumbers = nineLastNumbers.substring(0,9);
+  lvPersonalCode = twoFirstNumbers + "-" + nineLastNumbers;
+
+  return lvPersonalCode;
+}
+
+function generateLtPerCode (age, gender)  {
+//Convert age to birth year. Current year minus age minus 1day. 
 let today = new Date();
 birthYear = String(today.getFullYear() - age);
 birthMonth = String(today.getMonth() + 1).padStart(2, '0');
@@ -8,26 +17,18 @@ birthDay = String(today.getDate()).padStart(2, '0');
 
 let birthData = (birthYear + birthMonth + birthDay);
     
-
 //Adding a gender number.
 let century = birthData.substring(0, 2);
-let gender = 1;
 genderNumber = century * 2 -34 - gender;
-console.log('Century: ' + century);
 genderNumber = String(genderNumber);
-console.log(genderNumber);
 
 personalCode = genderNumber.substring(0) + birthData.substring(2,10);
 
-console.log(personalCode);
 
 let serialNumber = String(Math.floor(Math.random() * 999));
 serialNumber = serialNumber.padStart(3, '0');
 
-console.log(serialNumber);
-
 personalCode = personalCode +serialNumber;
-console.log('Personal code: ' + personalCode);
 
 //Check sum number. - from wikipedia
 function lt_nin_checksum(code) {
@@ -50,14 +51,60 @@ function lt_nin_checksum(code) {
   }
   
 personalCode = personalCode + lt_nin_checksum(personalCode); //adding 11 checksum digit.
-document.write(personalCode);
+
+return personalCode;
+
 }
+document.getElementById("LV").addEventListener("click".)
+
 
 form.addEventListener('submit',(e) => {
   e.preventDefault()
-  const form = document.getElementById("form");
-  const country = document.getElementsByName("country").value;
-  const genderOption = document.getElementsByName("genderOption").value;
+
   const age = document.getElementById("age").value
-  console.log(age)
+  
+  if (document.getElementById('LT').checked)
+  {
+
+  if(document.getElementById('female').checked) {
+    gender = 0;
+  }else if(document.getElementById('male').checked) {
+    gender = 1;
+  }
+  
+  personalCode = generateLtPerCode(age, gender);
+  let perCodeText = document.getElementById("perCodeText")
+  perCodeText.innerHTML = personalCode;
+  }
+  else if (document.getElementById('LV').checked){
+  personalCode = generateLVPerCode();;
+  let perCodeText = document.getElementById("perCodeText")
+  perCodeText.innerHTML = personalCode;
+  }
+})
+
+
+form.addEventListener('submit',(e) => {
+  e.preventDefault()
+
+  const age = document.getElementById("age").value
+  
+  if (document.getElementById('LT').checked)
+  {
+
+  if(document.getElementById('female').checked) {
+    gender = 0;
+  }else if(document.getElementById('male').checked) {
+    gender = 1;
+  }
+  
+  personalCode = generateLtPerCode(age, gender);
+  let perCodeText = document.getElementById("perCodeText")
+  perCodeText.innerHTML = personalCode;
+  }
+  else if (document.getElementById('LV').checked){
+  personalCode = generateLVPerCode();;
+  let perCodeText = document.getElementById("perCodeText")
+  perCodeText.innerHTML = personalCode;
+  }
 })
